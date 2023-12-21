@@ -1,0 +1,330 @@
+{
+    "name": "metaware-arc-debug",
+    "displayName": "VS Code extension for Debug Support for MetaWare® ARC",
+    "description": "An extension to expose additional features of debugging for MetaWare® ARC.",
+    "publisher": "synopsys-corporation",
+    "version": "0.5.0",
+    "license": "MIT",
+    "icon": "media/synopsys.png",
+    "keywords": [
+        "synopsys",
+        "metaware",
+        "debug",
+        "gdb"
+    ],
+    "engines": {
+        "vscode": "^1.82.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": [
+            {
+                "title": "VS Code extension for Debug Support for MetaWare® ARC",
+                "properties": {
+                    "metaware.debug.SHOW_ALL": {
+                        "type": "boolean",
+                        "description": "%capabilities.SHOW_ALL.description%",
+                        "default": false
+                    },
+                    "metaware.debug.ACTIVE_LANE_SYMBOL": {
+                        "type": "string",
+                        "description": "%capabilities.ACTIVE_LANE_SYMBOL.description%",
+                        "maxLength": 1
+                    },
+                    "metaware.debug.INACTIVE_LANE_SYMBOL": {
+                        "type": "string",
+                        "description": "%capabilities.INACTIVE_LANE_SYMBOL.description%",
+                        "maxLength": 1
+                    }
+                }
+            }
+        ],
+        "commands": [
+            {
+                "command": "MetaWare.launchConfigurator.generateLaunchJson",
+                "title": "MetaWare: Generate launch configurations"
+            }
+        ],
+        "taskDefinitions": [
+            {
+                "type": "toolProvider",
+                "properties": {
+                    "test1": {
+                        "type": "string",
+                        "description": "Testing"
+                    }
+                }
+            }
+        ],
+        "views": {
+            "debug": [
+
+            ]
+        },
+        "menus": {
+            "view/title": [
+
+            ],
+            "editor/context": [
+
+            ]
+        },
+        "debuggers": [
+            {
+                "type": "cppdbg",
+                "label": "MetaWare C++ (debugger-metaware)",
+                "languages": [
+                    "c",
+                    "cpp"
+                ],
+                "configurationAttributes": {
+                    "launch": {
+                        "type": "object",
+                        "required": [
+                            "program"
+                        ]
+                    },
+                    "attach": {}
+                },
+                "initialConfigurations": [
+                    {
+                        "comments": [
+                            "Full launch.json configuration details can be found here:",
+                            "https://code.visualstudio.com/docs/cpp/launch-json-reference"
+                        ],
+                        "name": "MetaWare C++: Launch & Break",
+                        "type": "cppdbg",
+                        "request": "launch",
+                        "preLaunchTask": "",
+                        "postDebugTask": "",
+                        "program": "enter program name, for example ${workspaceFolder}/a.exe",
+                        "args": [],
+                        "stopAtEntry": true,
+                        "cwd": "${workspaceFolder}",
+                        "environment": [
+                            {
+                                "name": "ZET_ENABLE_PROGRAM_DEBUGGING",
+                                "value": "1"
+                            },
+                            {
+                                "name": "IGC_EnableGTLocationDebugging",
+                                "value": "1"
+                            }
+                        ],
+                        "externalConsole": false,
+                        "MIMode": "gdb",
+                        "miDebuggerPath": "debugger-metaware",
+                        "setupCommands": [
+                            {
+                                "description": "Enable pretty-printing for gdb",
+                                "text": "-enable-pretty-printing",
+                                "ignoreFailures": true
+                            },
+                            {
+                                "description": "Disable target async",
+                                "text": "set target-async off",
+                                "ignoreFailures": true
+                            },
+                            {
+                                "description": "Do not display function arguments when printing a stack frame",
+                                "text": "set print frame-arguments none",
+                                "ignoreFailures": true
+                            }
+                        ]
+                    },
+                    {
+                        "comments": [
+                            "Full launch.json configuration details can be found here:",
+                            "https://code.visualstudio.com/docs/cpp/launch-json-reference"
+                        ],
+                        "name": "MetaWare C++: Launch & Run",
+                        "type": "cppdbg",
+                        "request": "launch",
+                        "preLaunchTask": "",
+                        "postDebugTask": "",
+                        "program": "enter program name, for example ${workspaceFolder}/a.exe",
+                        "args": [],
+                        "stopAtEntry": false,
+                        "cwd": "${workspaceFolder}",
+                        "environment": [
+                            {
+                                "name": "ZET_ENABLE_PROGRAM_DEBUGGING",
+                                "value": "1"
+                            },
+                            {
+                                "name": "IGC_EnableGTLocationDebugging",
+                                "value": "1"
+                            }
+                        ],
+                        "externalConsole": false,
+                        "MIMode": "gdb",
+                        "miDebuggerPath": "debugger-metaware",
+                        "setupCommands": [
+                            {
+                                "description": "Enable pretty-printing for gdb",
+                                "text": "-enable-pretty-printing",
+                                "ignoreFailures": true
+                            },
+                            {
+                                "description": "Disable target async",
+                                "text": "set target-async off",
+                                "ignoreFailures": true
+                            },
+                            {
+                                "description": "Do not display function arguments when printing a stack frame",
+                                "text": "set print frame-arguments none",
+                                "ignoreFailures": true
+                            }
+                        ]
+                    }
+                ],
+                "configurationSnippets": [
+                    {
+                        "label": "MetaWare C++: Launch & Run",
+                        "description": "Launch a program in debug mode without stopping at entry point",
+                        "body": {
+                            "comments": [
+                                "Full launch.json configuration details can be found here:",
+                                "https://code.visualstudio.com/docs/cpp/launch-json-reference"
+                            ],
+                            "name": "MetaWare C++: Launch & Run",
+                            "type": "cppdbg",
+                            "request": "launch",
+                            "preLaunchTask": "",
+                            "postDebugTask": "",
+                            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+                            "args": [],
+                            "stopAtEntry": false,
+                            "cwd": "${workspaceFolder}",
+                            "environment": [
+                                {
+                                    "name": "ZET_ENABLE_PROGRAM_DEBUGGING",
+                                    "value": "1"
+                                },
+                                {
+                                    "name": "IGC_EnableGTLocationDebugging",
+                                    "value": "1"
+                                }
+                            ],
+                            "externalConsole": false,
+                            "MIMode": "gdb",
+                            "miDebuggerPath": "debugger-metaware",
+                            "setupCommands": [
+                                {
+                                    "description": "Enable pretty-printing for gdb",
+                                    "text": "-enable-pretty-printing",
+                                    "ignoreFailures": true
+                                },
+                                {
+                                    "description": "Disable target async",
+                                    "text": "set target-async off",
+                                    "ignoreFailures": true
+                                },
+                                {
+                                    "description": "Do not display function arguments when printing a stack frame",
+                                    "text": "set print frame-arguments none",
+                                    "ignoreFailures": true
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "label": "MetaWare C++: Launch & Break",
+                        "description": "Launch a program in debug mode with a stop at entry point",
+                        "body": {
+                            "comments": [
+                                "Full launch.json configuration details can be found here:",
+                                "https://code.visualstudio.com/docs/cpp/launch-json-reference"
+                            ],
+                            "name": "MetaWare C++: Launch & Break",
+                            "type": "cppdbg",
+                            "request": "launch",
+                            "preLaunchTask": "",
+                            "postDebugTask": "",
+                            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+                            "args": [],
+                            "stopAtEntry": true,
+                            "cwd": "${workspaceFolder}",
+                            "environment": [
+                                {
+                                    "name": "ZET_ENABLE_PROGRAM_DEBUGGING",
+                                    "value": "1"
+                                },
+                                {
+                                    "name": "IGC_EnableGTLocationDebugging",
+                                    "value": "1"
+                                }
+                            ],
+                            "externalConsole": false,
+                            "MIMode": "gdb",
+                            "miDebuggerPath": "debugger-metaware",
+                            "setupCommands": [
+                                {
+                                    "description": "Enable pretty-printing for gdb",
+                                    "text": "-enable-pretty-printing",
+                                    "ignoreFailures": true
+                                },
+                                {
+                                    "description": "Disable target async",
+                                    "text": "set target-async off",
+                                    "ignoreFailures": true
+                                },
+                                {
+                                    "description": "Do not display function arguments when printing a stack frame",
+                                    "text": "set print frame-arguments none",
+                                    "ignoreFailures": true
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "variables": {}
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js",
+        "lint": "eslint -c .eslintrc.js --fix --ext .ts ./",
+        "package": "vsce package",
+        "basic-ui-tests": "extest setup-and-run \"out/uiTests/basic_ui_tests.js\" -m \"src/uiTests/configs/.mocharc-debug.js\""
+    },
+    "devDependencies": {
+        "@types/chai": "^4.3.6",
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "^20.6.1",
+        "@types/vscode": "^1.82.0",
+        "@typescript-eslint/eslint-plugin": "^6.7.0",
+        "@typescript-eslint/parser": "^6.7.0",
+        "@vscode/test-electron": "^2.3.4",
+        "@vscode/vsce": "^2.6.7",
+        "axios": "^1.6.0",
+        "chai": "^4.3.8",
+        "eslint": "^8.49.0",
+        "mocha": "^10.2.0",
+        "mocha-junit-reporter": "^2.2.1",
+        "mocha-multi-reporters": "^1.5.1",
+        "react": "^18.2.0",
+        "typescript": "^5.0.2",
+        "vscode-extension-tester": "^5.5.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/intel/vscode-oneapi-gdb-debug.git"
+    },
+    "dependencies": {
+        "@vscode/debugadapter": "^1.51.0",
+        "@vscode/debugprotocol": "^1.51.0",
+        "@vscode/webview-ui-toolkit": "^1.2.2"
+    }
+}
