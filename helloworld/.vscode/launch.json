@@ -5,9 +5,10 @@
     "version": "0.2.0",
     "configurations": [
     {
-        "name": "clang - Build and debug active file",
+        "name": "justin working",
         "type": "cppdbg",
-        "miDebuggerPath": "debugger-metaware",
+        // "miDebuggerPath": "debugger-metaware",
+         "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
         "request": "launch",
         "program": "${fileDirname}/${fileBasenameNoExtension}",
         "args": [],

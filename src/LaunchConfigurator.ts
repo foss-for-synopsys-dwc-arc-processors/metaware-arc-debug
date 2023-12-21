@@ -172,6 +172,13 @@ export class LaunchConfigurator {
  
         for (const cfg of configs) {
             if (cfg.type === "cppdbg" && cfg.miDebuggerPath === "debugger-metaware") {
+
+                //justin hack not working ???!!!
+                //extension just reset real absolute path
+
+                cfg.miDebuggerPath = "C:\\MinGW\\bin\\gdb.exe";
+                //justin hack
+
                 return true;
             }
         }
