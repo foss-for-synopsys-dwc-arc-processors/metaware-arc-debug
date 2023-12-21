@@ -13,8 +13,8 @@ import { LaunchConfigurator } from "./LaunchConfigurator";
 export function activate(context: vscode.ExtensionContext): void {
 
  
-    if (process.platform !== "linux") {
-        vscode.window.showWarningMessage("The Windows and macOS operating systems are not currently supported.");
+    if (process.platform == "darwin") {
+        vscode.window.showWarningMessage("The macOS operating systems are not currently supported.");
     }
 
 
