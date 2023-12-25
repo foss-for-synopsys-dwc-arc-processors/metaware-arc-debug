@@ -23,9 +23,12 @@
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb",
+        
         // "miDebuggerServerAddress": "localhost:49105",
         // "debugServerPath": "C:\\ARC\\nSIM\\nSIM\\bin\\nsimdrv.exe",
-        // "debugServerArgs": " -gdb -port 49105 -p nsim_isa_family=av2hs ",
+        // "debugServerArgs": " -gdb -port 49105 -p nsim_isa_family=av2hs | ccac -v  ",
+        //  "serverStarted": "DesignWare",
+
         
         "setupCommands": [
             { "text": "-environment-cd C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld" },
