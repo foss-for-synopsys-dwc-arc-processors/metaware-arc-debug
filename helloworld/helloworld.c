@@ -1,12 +1,16 @@
 #include <stdio.h>
 
+    int step = 3;
+    int total = 0;
+
 int main(int args, char* argv[])
 {
-    int k = 0;
-    int h = 0;
 
-    for(k = 33; k < 333333; k++)
-        h = k + h;
+
+    while( -1 ) {
+        total = total + step;
+        step = step * 2;
+    }
 
     return 0;
 }

@@ -14,6 +14,10 @@
         "program": "C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld\\helloworld.exe",
         "args": [
         ],
+        "logging": {
+            "engineLogging": "verbose",
+            "traceResponse": true
+         },
         "stopAtEntry": true,
         "cwd": "C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld\\",
         "environment": [],
@@ -22,12 +26,14 @@
         // "miDebuggerServerAddress": "localhost:49105",
         // "debugServerPath": "C:\\ARC\\nSIM\\nSIM\\bin\\nsimdrv.exe",
         // "debugServerArgs": " -gdb -port 49105 -p nsim_isa_family=av2hs ",
-
+        
         "setupCommands": [
             { "text": "-environment-cd C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld" },
             { "text": "-target-select remote localhost:49105", "description": "connect to target", "ignoreFailures": false },
             { "text": "-file-exec-and-symbols helloworld.exe", "description": "load file", "ignoreFailures": false},
-            { "text": "-break-insert 10", "description": "break main", "ignoreFailures": false}
+            { "text": "-break-insert --function main", "description": "break main", "ignoreFailures": false},
+            { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
+            // { "text": "-exec-run","description": "exec run", "ignoreFailures": false},
         ],
     }
     ]
