@@ -7,26 +7,28 @@
     {
         "name": "justin working",
         "type": "cppdbg",
-        // "miDebuggerPath": "debugger-metaware",
-         "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
+        "miDebuggerPath": "C:\\arc_gnu\\bin\\arc-elf32-gdb.exe",
+        // "miDebuggerPath": "C:\\ARC\\nSIM\\nSIM\\bin\\nsimdrv.exe",
+        // "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
         "request": "launch",
-        "program": "${fileDirname}/${fileBasenameNoExtension}",
-        "args": [],
+        "program": "C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld\\helloworld.exe",
+        "args": [
+        ],
         "stopAtEntry": true,
-        "cwd": "${fileDirname}",
+        "cwd": "C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld\\",
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb",
+        // "miDebuggerServerAddress": "localhost:49105",
+        // "debugServerPath": "C:\\ARC\\nSIM\\nSIM\\bin\\nsimdrv.exe",
+        // "debugServerArgs": " -gdb -port 49105 -p nsim_isa_family=av2hs ",
+
         "setupCommands": [
-            {
-                "description": "Enable pretty-printing for gdb",
-                "text": "-enable-pretty-printing",
-                "ignoreFailures": true
-            }
+            { "text": "-environment-cd C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld" },
+            { "text": "-target-select remote localhost:49105", "description": "connect to target", "ignoreFailures": false },
+            { "text": "-file-exec-and-symbols helloworld.exe", "description": "load file", "ignoreFailures": false},
+            { "text": "-break-insert 10", "description": "break main", "ignoreFailures": false}
         ],
-       // "preLaunchTask": "C/C++: clang build active file",
-       // "miDebuggerPath": "/depot/tools/clang/clang1406_gcc920/linux64/bin/lldb"
-       // "miDebuggerPath": "/remote/arc/home/lyou/lldb-mi/build/src/lldb-mi"
     }
     ]
 }
