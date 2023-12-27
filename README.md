@@ -1,17 +1,24 @@
 ## VS Code Extension for Debug Support for MetaWare® ARC 
 
-This extension for Visual Studio Code (VS Code) enables
-additional features of GDB for MetaWare® ARC.
+This extension for Visual Studio Code (VS Code) enables MetaWare® ARC Debugger with Visual Studio Code Debugger GUI.
 
 ## Get started
+
+https://github.com/foss-for-synopsys-dwc-arc-processors/metaware-arc-debug
+
 Start using this VS Code extension with guide below:
 1. download and install VS Code.
 2. go to Extensions Tab - install Microsoft C/C++ extension first. 
 3. go to Extension Tab - button "Views and More Actions..." - "Install from VSIX..." to manually install this VSIX file.
-4. reload VS Code.
+4. reload VS Code from cmd shell to inherit MetaWare toolchain setup. 
+5. into the demo Folder helloworld, update helloworld/.vscode/launch.json file preperly, then go to Run and Debug Tab - select configuration "justin working", start debugging ARC ELF file helloworld.exe 
+
 
 ## Prepare Launch Configuration
-Note that this feature is only available for the Linux* target platform.
+Note that this feature is only available for ARC-GDB engine at the Windows* target platform now.
+
+TBD, to support ARC-GDB engine at Linux target platform
+TBD, to support ARC-LLDB engine at Windows and Linux platform. 
 
 This extension enables the ability to prepare launch configurations for running
 and debugging binary ELF file created using MetaWare ARC toolset.
@@ -29,27 +36,24 @@ Note that you can modify the configuration manually. For example, you may need t
 More information about all the `launch.json` features can be found at [Configuring C/C++ debugging](https://code.visualstudio.com/docs/cpp/launch-json-reference).
 
 
-
-## Memory Viewing
-VS Code's generic debugger now includes a feature for viewing binary data. When a variable supports memory viewing and editing, an inline binary icon appears in the Variables view. Clicking on the icon opens the Hex Editor, allowing to perform operations on the binary data.
-This functionality appears in the Variables and Watch panels. Clicking on the icon opens the Hex Editor, in which is possible to inspect conveniently large pieces of data. 
-
-
-## Differences Between vanilla GDB and MetaWare Debugger
-To display the differences between these two distributions of GDB:
-1. Press `Ctrl+Shift+P ( or View -> Command Palette... )` to open the Command Palette.
-2. Type **help** to see help commands.
-4. For quick access to MetaWare Online Documentation, see `MetaWare ARC: Open MetaWare ARC debugger online documentation (help)`.
-
 ## Troubleshooting
 
-## Contributing
-Install Visual Studio Code (version 1.42, or newer) and open this project within it. You also need `node + yarn`.
-- Switch to project root folder.
-- `yarn install`
-- `code .`
+## For Developer for VS Code extension 
 
-At this point you should be able to run the extension in the "Extension
-Development Host".
+the repo is https://github.com/foss-for-synopsys-dwc-arc-processors/metaware-arc-debug
+
+
+
+Install Visual Studio Code and open this project within it. You also need `npm and vsce`.
+- Switch to project root folder.
+- new PowerShell, import MetaWare toolchain setup script. 
+- in the PowerShell, - Set-ExecutionPolicy RemoteSigned -Scope CurrentUser    //to enable VSCode permission 
+- `code .`
+- in the Terminal View, - npm install
+- in the Terminal View, - vsce package    //to build and generate VSIX extension file. 
+
+At this point you should be able to install VSIX into VSCode itself by below steps,
+
+go to Extension Tab - button "Views and More Actions..." - "Install from VSIX..." to manually install this VSIX file.
 
 
