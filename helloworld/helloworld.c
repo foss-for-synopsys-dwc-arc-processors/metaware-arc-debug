@@ -1,4 +1,4 @@
-#include <stdio.h>
+
 
     int step = 3;
     int total = 0;
