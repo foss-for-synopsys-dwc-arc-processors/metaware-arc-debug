@@ -2,6 +2,7 @@
 
 This extension for Visual Studio Code (VS Code) enables MetaWare® ARC Debugger with Visual Studio Code Debugger GUI.
 
+
 ## Get started
 
 https://github.com/foss-for-synopsys-dwc-arc-processors/metaware-arc-debug
@@ -14,11 +15,13 @@ Start using this VS Code extension with guide below:
 5. into the demo Folder helloworld, update helloworld/.vscode/launch.json file preperly, then go to Run and Debug Tab - select configuration "justin working", start debugging ARC ELF file helloworld.exe 
 
 
-## Prepare Launch Configuration
-Note that this feature is only available for ARC-GDB engine at the Windows* target platform now.
+## Working in progressing
 
-TBD, to support ARC-GDB engine at Linux target platform
-TBD, to support ARC-LLDB engine at Windows and Linux platform. 
+Note that this feature is only available for ARC-GDB engine at the Windows* target platform now.
+TBD --- To Support ARC-LLDB engine at Windows platform.
+
+
+## Prepare Launch Configuration
 
 This extension enables the ability to prepare launch configurations for running
 and debugging binary ELF file created using MetaWare ARC toolset.
@@ -38,11 +41,10 @@ More information about all the `launch.json` features can be found at [Configuri
 
 ## Troubleshooting
 
+
 ## For Developer for VS Code extension 
 
 the repo is https://github.com/foss-for-synopsys-dwc-arc-processors/metaware-arc-debug
-
-
 
 Install Visual Studio Code and open this project within it. You also need `npm and vsce`.
 - Switch to project root folder.
@@ -55,5 +57,3 @@ Install Visual Studio Code and open this project within it. You also need `npm a
 At this point you should be able to install VSIX into VSCode itself by below steps,
 
 go to Extension Tab - button "Views and More Actions..." - "Install from VSIX..." to manually install this VSIX file.
-
-
