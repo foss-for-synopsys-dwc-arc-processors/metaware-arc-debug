@@ -17,9 +17,7 @@ Start using this VS Code extension with guide below:
 
 ## Working in progressing
 
-Note that this feature is only available for ARC-GDB engine at the Windows* target platform now.
-TBD --- To Support ARC-LLDB engine at Windows platform.
-
+Note that this feature is available for LLDB engine at the Windows* target platform now.
 
 ## Prepare Launch Configuration
 
