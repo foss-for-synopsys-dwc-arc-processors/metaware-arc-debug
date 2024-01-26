@@ -20,9 +20,14 @@
          },
         "stopAtEntry": true,
         "cwd": "C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld-clang\\",
-        "environment": [],
+        "environment": [
+            {
+                "LLDB_USE_NATIVE_PDB_READER": 1
+                
+            }
+        ],
         "externalConsole": false,
-        // "MIMode": "lldb",
+        "MIMode": "gdb",
         
         // "miDebuggerServerAddress": "localhost:49105",
         // "debugServerPath": "ccac  ",
@@ -35,9 +40,11 @@
         //     { "text": "-environment-cd C:\\Synopsys\\Codebase\\Purecode\\metaware-arc-debug\\helloworld-clang" },
         //     // { "text": "-target-select remote localhost:49105", "description": "connect to target", "ignoreFailures": false },
         //     { "text": "-file-exec-and-symbols helloworld.exe", "description": "load file", "ignoreFailures": false},
+        //     // { "text": "b main", "description": "break main", "ignoreFailures": false},
         //     // { "text": "-break-insert --function main", "description": "break main", "ignoreFailures": false},
-        //     { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
+        //     // { "text": "-target-download", "description": "flash target", "ignoreFailures": false }
         //     // { "text": "-exec-run","description": "exec run", "ignoreFailures": false},
+        //     // { "text": "run","description": "exec run", "ignoreFailures": false},
         // ],
         
     }
